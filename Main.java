@@ -2,12 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String[] baraja = {
-        "A-C", "2-C", "3-C", "4-C", "5-C", "6-C", "7-C", "8-C", "9-C", "10-C", "J-C", "Q-C", "K-C",
-        "A-D", "2-D", "3-D", "4-D", "5-D", "6-D", "7-D", "8-D", "9-D", "10-D", "J-D", "Q-D", "K-D",
-        "A-T", "2-T", "3-T", "4-T", "5-T", "6-T", "7-T", "8-T", "9-T", "10-T", "J-T", "Q-T", "K-T",
-        "A-P", "2-P", "3-P", "4-P", "5-P", "6-P", "7-P", "8-P", "9-P", "10-P", "J-P", "Q-P", "K-P"
-        };
+        String[] baraja = crear_baraja();
         
         int ficha_1 = 1;
         int ficha_5 = 5;
@@ -30,7 +25,7 @@ public class Main {
             seguir_jugando = false;
         } else {
             System.out.println("Tu bote inicial es: " + bote_inicial);
-            System.out.println("============================= ");
+            separar('=');
         }
 
         // Bucle principal de rondas 
@@ -67,7 +62,7 @@ public class Main {
             // Bucle del turno del jugador: pide cartas mientras quiera y no llegue a 21
             while (pedir_carta == true && suma_jugador < 21) {
                 String carta3_jugador = entregar_carta(baraja);
-                System.out.println("============================== ");
+                separar('=');
                 mostrar_cartas_jugador(carta3_jugador);
                 suma_jugador = sumar_cartas(suma_jugador, traducir_figura_a_numero(carta3_jugador));
 
@@ -78,12 +73,12 @@ public class Main {
                 } else if (suma_jugador == 21) {
                     System.out.println("La suma de tus cartas es: " + (suma_jugador));
                     System.out.println("BLACKJACK, GANASTE");
-                    System.out.println("============================== ");
+                    separar('=');
                     victoria = "victoria";
                 } else {
                     System.out.println("La suma de tus cartas es: " + (suma_jugador));
                     System.out.println("Te pasaste de 21, perdiste");
-                    System.out.println("============================== ");
+                    separar('=');
                     victoria = "derrota";
                 }
             }
@@ -167,14 +162,13 @@ public class Main {
 
     // Extrae una carta al azar de la baraja y la marca como null para evitar repetirla
     public static String entregar_carta(String baraja[]) {
-        int posicion;
-        do {
-            posicion = (int) (Math.random() * 52);
-        } while (baraja[posicion] == null);
-
+        int posicion = (int) (Math.random() * 52);
+        while (baraja[posicion] == null) {
+        posicion = (int) (Math.random() * 52);
+        }
+        
         String carta_elegida = baraja[posicion];
         baraja[posicion] = null;
-
         return carta_elegida;
     }
 
@@ -230,5 +224,11 @@ public class Main {
                 break;
         }
         return dinero_final;
+    }
+    
+    public static void  separar(char caracter){
+        for(int i=0; i<=15;i++){
+            System.out.print(caracter);
+        }  System.out.println("");
     }
 }
