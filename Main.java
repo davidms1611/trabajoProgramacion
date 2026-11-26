@@ -6,7 +6,7 @@ public class Main {
 
         System.out.println("BIENVENIDO A BLACKJACK 21");
         System.out.println("Tu objetivo es duplicar el bote, suerte ");
-        System.out.println("Cual es tu bote inicial?");
+        System.out.println("Cual es tu bote inicial? El bote maximo es 100$");
         Scanner bote = new Scanner(System.in);
         int bote_inicial = bote.nextInt();
         int exito = bote_inicial * 2;
