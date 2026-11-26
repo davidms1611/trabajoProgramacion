@@ -141,7 +141,7 @@ public class Main {
             } 
         }
 
-        if (!bote_valido) {
+        if (bote_valido == false) {
             System.out.println("No se puede iniciar la partida con un bote de: " + bote_inicial);
         } 
         else if (bote_inicial >= exito) {
