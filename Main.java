@@ -134,7 +134,8 @@ public class Main {
                 
                 baraja = crear_baraja();
                 
-            } else {
+            } 
+            else {
                 System.out.println("Elige una apuesta dentro de tu bote ");
                 continue;
             } 
@@ -142,11 +143,14 @@ public class Main {
 
         if (!bote_valido) {
             System.out.println("No se puede iniciar la partida con un bote de: " + bote_inicial);
-        } else if (bote_inicial >= exito) {
+        } 
+        else if (bote_inicial >= exito) {
             System.out.println("Has cumplido tu objetivo, has derrotado a la banca");
-        } else if (bote_inicial <= 0) {
+        } 
+        else if (bote_inicial <= 0) {
             System.out.println("Has perdido, la banca ha conseguido su objetivo");
-        } else {
+        } 
+        else {
             System.out.println("Te has plantado con un bote de: " + bote_inicial);
         }
     } 
@@ -170,14 +174,30 @@ public class Main {
                     return 11;
                 }
                 
-            case "2-C", "2-D", "2-T", "2-P": return 2;
-            case "3-C", "3-D", "3-T", "3-P": return 3;
-            case "4-C", "4-D", "4-T", "4-P": return 4;
-            case "5-C", "5-D", "5-T", "5-P": return 5;
-            case "6-C", "6-D", "6-T", "6-P": return 6;
-            case "7-C", "7-D", "7-T", "7-P": return 7;
-            case "8-C", "8-D", "8-T", "8-P": return 8;
-            case "9-C", "9-D", "9-T", "9-P": return 9;
+            case "2-C", "2-D", "2-T", "2-P": 
+                return 2;
+
+            case "3-C", "3-D", "3-T", "3-P": 
+                return 3;
+
+            case "4-C", "4-D", "4-T", "4-P": 
+                return 4;
+
+            case "5-C", "5-D", "5-T", "5-P":
+                return 5;
+
+            case "6-C", "6-D", "6-T", "6-P": 
+                return 6;
+
+            case "7-C", "7-D", "7-T", "7-P": 
+                return 7;
+
+            case "8-C", "8-D", "8-T", "8-P": 
+                return 8;
+
+            case "9-C", "9-D", "9-T", "9-P": 
+                return 9;
+
             case "10-C", "10-D", "10-T", "10-P",
                  "J-C", "J-D", "J-T", "J-P",
                  "Q-C", "Q-D", "Q-T", "Q-P",
