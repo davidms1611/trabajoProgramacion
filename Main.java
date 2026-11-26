@@ -12,10 +12,12 @@ public class Main {
         int exito = bote_inicial * 2;
         String victoria = "";
         boolean seguir_jugando = true;  
+        boolean bote_valido = true;
         
         if (bote_inicial <= 0 || bote_inicial > 100) {
             System.out.println("El bote inicial debe ser mayor a 0 y menor o igual a 100");
             seguir_jugando = false;
+            bote_valido = false;
         } else {
             System.out.println("Tu bote inicial es: " + bote_inicial);
             separar('=');
@@ -138,7 +140,9 @@ public class Main {
             } 
         }
 
-        if (bote_inicial >= exito) {
+        if (!bote_valido) {
+            System.out.println("No se puede iniciar la partida con un bote de: " + bote_inicial);
+        } else if (bote_inicial >= exito) {
             System.out.println("Has cumplido tu objetivo, has derrotado a la banca");
         } else if (bote_inicial <= 0) {
             System.out.println("Has perdido, la banca ha conseguido su objetivo");
@@ -147,11 +151,11 @@ public class Main {
         }
     } 
 
-    // [CAMBIO]: Añadido el parámetro 'boolean esJugador' para distinguir si la carta es tuya o de la casa
+    
     public static int traducir_figura_a_numero(String numero_carta, boolean esJugador) {
         switch (numero_carta) {
             case "A-C", "A-D", "A-T", "A-P":
-                // [CAMBIO]: Solo te pregunta a ti si 'esJugador' es true. Si es de la casa, vale 11 automáticamente
+                // Solo te pregunta a ti si esJugador es true Si es de la casa vale 11 automáticamente
                 if (esJugador) {
                     System.out.println("Te ha salido un as, que puntuacion eliges, 1(true) o 11(false)");
                     Scanner as = new Scanner(System.in);
